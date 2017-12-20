@@ -62,3 +62,4 @@ vim /etc/nagios/nrpe.cfg
 
 service nagios-nrpe-server restart
 
+sudo chmod 755 index.html
