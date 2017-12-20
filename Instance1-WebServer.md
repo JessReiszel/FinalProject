@@ -20,20 +20,36 @@ Public DNS: ec2-18-217-151-132.us-east-2.compute.amazonaws.com
 
 #### COMMANDS RUN
 sudo apt-get install apache2
+
 cd var/www/html
+
 sudo vim index.html	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*create custom landing page*] 
+
 cd home/ubuntu
+
 mkdir myStuff		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*folder for my site files*]
+
 sudo chmod 777 myStuff		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*allow access to transfer file here*]
 
+
 [*Commands from virtual-desktop to secure copy background image file to ec2 instance*]
-jess@jess-VirtualBox:~$ sudo scp -i ~/Desktop/Keys/jess1.pem ~/Desktop/Final_Project_Files/roadBG.jpg ubuntu@ec2-18-217-151-132.us-east-2.compute.amazonaws.com:/home/ubuntu/myStuff	 
+
+jess@jess-VirtualBox:~$ sudo scp -i ~/Desktop/Keys/jess1.pem ~/Desktop/Final_Project_Files/roadBG.jpg 
+
+ubuntu@ec2-18-217-151-132.us-east-2.compute.amazonaws.com:/home/ubuntu/myStuff	
+
 sudo cp /home/ubuntu/myStuff/roadBG.jpg /var/www/html	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*copy file to html folder*]
+
 cd /var/www/html
+
 sudo mkdir images   	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*Made an images folder for site images*]
+
 mv roadBG.jpg images	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*put bg image in images folder*]
+
 sudo vim stylesheet.css	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*created stylesheet for index.html to reference*]
+
 sudo vim index.html	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*configured index.html to point to my stylesheet*]
+
 
 _____________________
 ##### AFTER NAGIOS SETUP ON MASTER NAGIOS SERVER
