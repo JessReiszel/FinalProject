@@ -18,6 +18,6 @@ umask 177
 mysqldump --user=$username --password=$password --host=$host $db_name > $backup_path/$db_name-$datewritten.sql
 
 #Find backup files in the sqldata folder older than 2 days and delete them
-find $backup_path/* -mtime +2 -exec rm {} \;
+find $backup_path/* -mtime +2 -exec rm {} \; 
 
                                 
