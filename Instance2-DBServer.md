@@ -6,9 +6,7 @@ Public DNS: ec2-18-217-201-35.us-east-2.compute.amazonaws.com
 
 ### Security-group: launch-wizard-2
 	Inbound Traffic
-		HTTP, TCP, Port 80
 		SSH, Port 22
-		All ICMP-IPv4, source:sg-3df2f755 (launch-wizard-3)
             All traffic, source:sg-3df2f755 (launch-wizard-3)
 	Outbound Traffic
 		All allowed on all ports
