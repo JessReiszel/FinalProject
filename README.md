@@ -20,6 +20,7 @@ Server3- Nagios Master Server
   - Enable push notifications for NAGIOS alerts
   
   
+  
 ## Individual Deliverables:
   - Setup a test database/table
   - Configure a read only user
