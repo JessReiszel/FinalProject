@@ -53,7 +53,7 @@ grant select on *.* to 'readonlyuser'@'localhost';	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 
 create user 'adminuser'@'localhost' IDENTIFIED BY 'creative';	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*create admin user with all privileges*]
 
-grant all privileges on *.* to 'adminuser'@'localhost';		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*grant all privileges to admin user*]
+grant all privileges on *.* to 'adminuser'@'localhost';		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*grant all privileges to admin user*] 
 
 
 __________________
