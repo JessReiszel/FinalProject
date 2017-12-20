@@ -1,0 +1,22 @@
+body {
+    background-image: url('images/roadBG.jpg');
+
+}
+
+.header {
+
+	text-align:center;
+	font-weight:500;
+	font-size:40pt;
+	margin-top:50px;
+	color:white;
+	
+
+}
+
+.sometext {
+
+	font-size:20pt;
+
+}
+
