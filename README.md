@@ -1,9 +1,9 @@
 # FinalProject
 
-Goal: Use AWS to monitor multiple servers
 
 
-Common Deliverables:
+
+## Common Deliverables:
 
 Server1- Web Server
   - Default Apache Page (I created a custom page)
@@ -20,7 +20,7 @@ Server3- Nagios Master Server
   - Enable push notifications for NAGIOS alerts
   
   
-  Individual Deliverables:
+## Individual Deliverables:
   - Setup a test database/table
   - Configure a read only user
   - Configure an admin user
