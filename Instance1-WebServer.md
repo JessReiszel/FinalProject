@@ -55,6 +55,10 @@ _____________________
 ##### AFTER NAGIOS SETUP ON MASTER NAGIOS SERVER
 
 sudo apt-get install nagios-plugins nagios-nrpe-server -y
+
 sudo su
+
 vim /etc/nagios/nrpe.cfg
+
 service nagios-nrpe-server restart
+
