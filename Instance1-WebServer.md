@@ -32,7 +32,7 @@ mkdir myStuff		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*folder for my site files*]
 sudo chmod 777 myStuff		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*allow access to transfer file here*]
 
 
-[*Commands from virtual-desktop to secure copy background image file to ec2 instance*]
+[*Commands from virtual-desktop to secure copy background image file to ec2 instance*] 
 
 jess@jess-VirtualBox:~$ sudo scp -i ~/Desktop/Keys/jess1.pem ~/Desktop/Final_Project_Files/roadBG.jpg 
 
