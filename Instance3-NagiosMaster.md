@@ -31,7 +31,7 @@ Public DNS: ec2-13-59-117-22.us-east-2.compute.amazonaws.com
 
 #### COMMANDS RUN
 _____________________
-###### INSTALL AND CONFIGURE NAGIOS
+###### INSTALL AND CONFIGURE NAGIOS 
 
 sudo apt-get update
 
