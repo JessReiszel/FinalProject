@@ -63,6 +63,6 @@ sudo apt-get install nagios-plugins nagios-nrpe-server -y
 
 sudo su
 
-vim /etc/nagios/nrpe.cfg
+vim /etc/nagios/nrpe.cfg	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*Edit nagios nrpe config file*]
 
-service nagios-nrpe-server restart
+service nagios-nrpe-server restart	
