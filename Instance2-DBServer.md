@@ -26,11 +26,11 @@ ssh -i "jess1.pem" ubuntu@ec2-18-217-201-35.us-east-2.compute.amazonaws.com
 
 sudo apt-get update								
 
-sudo apt-get install mysql-server						**install mysql, set password for root user: "creative"
+sudo apt-get install mysql-server	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*install mysql, set password for root user*]
 
 mysql -u root -p
 
-create database company_inventory;
+create database company_inventory;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*create sample data table "inventory"*]
 use company_inventory;
 create table inventory (
     -> id int(11) NOT NULL,
@@ -58,13 +58,13 @@ __________________
 ###### CREATING BACKUP SCRIPT OF DATABASE
 cd home
 
-sudo mkdir sql_backup
+sudo mkdir sql_backup	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*create folder for backup files and script*]
 
-cd sql_backup
+cd sql_backup		
 
-sudo mkdir sqldata
+sudo mkdir sqldata	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*create folder specifically for backup files*]
 
-sudo vim backup.sh 
+sudo vim backup.sh 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*create backup script to backup files, deleting those older than 30 mins*]
 
 sudo crontab -e		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*create crontab job to run backups*]
 
@@ -76,25 +76,25 @@ sudo apt-get install nagios-plugins nagios-nrpe-server -y
 
 sudo su
 
-vim /etc/nagios/nrpe.cfg
+vim /etc/nagios/nrpe.cfg  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*Edit nagios nrpe config file. Allowed NAGIOS private IP to have access*]
 
 service nagios-nrpe-server restart
 
 
 _____________________
-###### SETTING UP MYSQL UPTIME MONITORING
+###### SETTING UP MYSQL USER FOR NAGIOS TO MONITOR UPTIME
 
 mysql -u root -p
 
-CREATE USER 'nagios'@'13.59.117.22' IDENTIFIED BY 'creative';
+CREATE USER 'nagios'@'172.31.19.195' IDENTIFIED BY 'creative';	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*create nagios user for mysql*]
 
-GRANT USAGE ON *.* TO 'nagios'@'13.59.117.22';
+GRANT USAGE ON *.* TO 'nagios'@'172.31.19.195';		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*grant privileges for nagios user*]
 
 CREATE USER 'nagios'@'%' IDENTIFIED BY 'creative';
 
 GRANT USAGE ON *.* TO 'nagios'@'%';
 
-flush privileges;
+flush privileges;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*refresh privileges information*]
 
 sudo vim mysqld.cnf	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*edit cnf file to comment out 127.0.0.1 bind address*]
 
