@@ -46,15 +46,13 @@ sh -c "echo /swap swap swap defaults 0 0 >> /etc/fstab"
 
 sh -c "echo vm.swappiness = 0 >> /etc/sysctl.conf && sysctl -p"
 
-useradd nagios
+useradd nagios		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*create user and group for nagios*]
 
 groupadd nagcmd		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*create user and group for nagios*]
 
 sudo su		
 
-wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-4.2.0.tar.gz
-
-wget http://nagios-plugins.org/download/nagios-plugins-2.1.2.tar.gz
+wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-4.2.0.tar.gz	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*Download NAGIOS*]
 
 tar xvf nagios-*.tar.gz
 
@@ -78,7 +76,7 @@ make install-config
 
 cd
 
-wget http://nagios-plugins.org/download/nagios-plugins-2.1.2.tar.gz
+wget http://nagios-plugins.org/download/nagios-plugins-2.1.2.tar.gz	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*Download NAGIOS plugins*]
 
 tar xvf nagios-plugins-*.tar.gz
 
@@ -90,11 +88,11 @@ make
 
 make install
 
-vim /usr/local/nagios/etc/nagios.cfg		
+vim /usr/local/nagios/etc/nagios.cfg	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*Edit nagios.cfg file*]
 
-mkdir /usr/local/nagios/etc/servers
+mkdir /usr/local/nagios/etc/servers	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*create folders for servers to be monitored*]
 
-vim /usr/local/nagios/etc/objects/contacts.cfg
+vim /usr/local/nagios/etc/objects/contacts.cfg	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*configure contact email for alerts*]
 
 a2enmod rewrite cgi
 
@@ -112,26 +110,26 @@ service nagios restart
 _____________________
 ###### SETTING UP EMAIL FOR NAGIOS ALERTS
 
-sudo apt-get install ssmtp
+sudo apt-get install ssmtp	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*install ssmtp for email capability*]
 
 sudo vim /etc/ssmtp/ssmtp.conf	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*edit config file*]
 
 sudo chown -R nagios:www-data /usr/local/nagios/var/rw/		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*needed to change ownership for nagios to be able to enable notifs*]
 
-On Nagios GUI, click enable all notif for hosts and services.
+>> On Nagios GUI, click enable all notifications for hosts and services.
 
 
 
 _____________________
 ###### SETTING UP MYSQL MONITORING
 
-wget "https://labs.consol.de/assets/downloads/nagios/check_mysql_health-2.2.2.tar.gz"
+wget "https://labs.consol.de/assets/downloads/nagios/check_mysql_health-2.2.2.tar.gz"	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*download plugin to monitor mySQL Uptime*]
 
 mkdir /opt/check_mysql
 
 mv check_mysql_health-2.2.2.tar.gz opt/check_mysql
 
-tar -vxzf check_mysql_health-2.2.2.tar.gz
+tar -vxzf check_mysql_health-2.2.2.tar.gz	
 
 cd check_mysql_health-2.2.2
 
@@ -141,17 +139,15 @@ make
 
 make install
 
-apt-get install libdbd-mysql-perl
+apt-get install libdbd-mysql-perl	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*install additional packages needed*]
 
-apt-get install libmysqlclient-dev
+apt-get install libmysqlclient-dev	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [*install additional packages needed*]
 
 ./check_mysql_health -H 172.31.31.131 --username nagios --password creative --mode uptime	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*test plugin*]
 
-vim commands.cfg
+vim commands.cfg	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*define command for mySQL Uptime (check_mysql_health)*]
 
 cd ../servers
 
 vim monitor2.cfg	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*add uptime service to be monitored*]
-
-
 
