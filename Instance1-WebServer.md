@@ -19,17 +19,19 @@ Public DNS: ec2-18-217-151-132.us-east-2.compute.amazonaws.com
 
 
 #### COMMANDS RUN
+_____________________
+##### INSTALL AND CONFIGURE APACHE2
 sudo apt-get install apache2
 
 cd var/www/html
 
-sudo vim index.html	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*create custom landing page*] 
+sudo vim index.html	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*edit to create custom landing page*] 
 
 cd home/ubuntu
 
-mkdir myStuff		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*folder for my site files*]
+mkdir myStuff		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*folder for my site files aka a jpeg background*]
 
-sudo chmod 777 myStuff		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*allow access to transfer file here*]
+sudo chmod 777 myStuff		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*allow access to transfer file here from my Ubuntu desktop*]
 
 
 [*Commands from virtual-desktop to secure copy background image file to ec2 instance*] 
@@ -39,6 +41,9 @@ jess@jess-VirtualBox:~$ sudo scp -i ~/Desktop/Keys/jess1.pem ~/Desktop/Final_Pro
 ubuntu@ec2-18-217-151-132.us-east-2.compute.amazonaws.com:/home/ubuntu/myStuff	
 
 sudo cp /home/ubuntu/myStuff/roadBG.jpg /var/www/html	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*copy file to html folder*]
+
+
+[*Back into Ec2 Web Instance*]
 
 cd /var/www/html
 
@@ -52,7 +57,7 @@ sudo vim index.html	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	[*configured index.html
 
 
 _____________________
-##### AFTER NAGIOS SETUP ON MASTER NAGIOS SERVER
+##### INSTALLING NAGIOS-NRPE-SERVER
 
 sudo apt-get install nagios-plugins nagios-nrpe-server -y
 
@@ -61,5 +66,3 @@ sudo su
 vim /etc/nagios/nrpe.cfg
 
 service nagios-nrpe-server restart
-
-sudo chmod 755 index.html
